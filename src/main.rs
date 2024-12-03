@@ -1,6 +1,7 @@
 use std::fs::File;
 
 mod one;
+mod three;
 mod two;
 
 fn main() {
@@ -13,5 +14,15 @@ fn main() {
     println!(
         "{}",
         two::second::execute(File::open("inputs/two").unwrap())
+    );
+
+    println!("--- DAY 3 ---");
+    println!(
+        "{}",
+        three::first::execute(File::open("inputs/three").unwrap())
+    );
+    println!(
+        "{}",
+        three::second::execute(File::open("inputs/three").unwrap())
     );
 }

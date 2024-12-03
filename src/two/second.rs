@@ -71,6 +71,6 @@ mod tests {
         assert!(is_valid(vec![4, 5, 6, 4, 7].as_slice()));
         assert!(is_valid(vec![1, 2, 0, -1, -2].as_slice()));
         assert!(is_valid(vec![1, 3, 5, 6, 8, 9, 12, 9].as_slice()));
-        assert!(is_valid(vec![76, 78, 81, 84, 85, 89, 92, 96].as_slice()));
+        assert!(!is_valid(vec![76, 78, 81, 84, 85, 89, 92, 96].as_slice()));
     }
 }
