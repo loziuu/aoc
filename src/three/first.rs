@@ -81,7 +81,6 @@ impl Reader {
             return None;
         }
 
-        println!("Parsing number");
         Some(number.as_str().parse().unwrap())
     }
 
