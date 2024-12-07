@@ -3,6 +3,7 @@ use std::{fs::File, time::Instant};
 mod five;
 mod four;
 mod one;
+mod seven;
 mod six;
 mod three;
 mod two;
@@ -40,9 +41,11 @@ fn main() {
 
     println!("--- DAY 6 ---");
     println!("{}", six::first::execute("inputs/six"));
-    elapsed(|| three::first::execute(file("inputs/three")) as i32);
     println!("{}", six::second::execute("inputs/six"));
-    elapsed(|| three::first::execute(file("inputs/three")) as i32);
+
+    println!("--- DAY 7 ---");
+    println!("{}", seven::first::execute("inputs/seven"));
+    println!("{}", seven::second::execute("inputs/seven"));
 }
 
 fn file(name: &str) -> File {
