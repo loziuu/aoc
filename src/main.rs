@@ -1,12 +1,14 @@
 use std::{fs::File, time::Instant};
 
 mod eight;
+mod eleven;
 mod five;
 mod four;
 mod nine;
 mod one;
 mod seven;
 mod six;
+mod ten;
 mod three;
 mod two;
 
@@ -56,6 +58,14 @@ fn main() {
     println!("--- DAY 9 ---");
     println!("{}", nine::first::execute("inputs/nine"));
     println!("{}", nine::second::execute("inputs/nine"));
+
+    println!("--- DAY 10 ---");
+    println!("{}", ten::first::execute("inputs/ten"));
+    println!("{}", ten::second::execute("inputs/ten"));
+
+    println!("--- DAY 11 ---");
+    println!("{}", eleven::first::execute("inputs/eleven", 25));
+    println!("{}", eleven::first::execute("inputs/eleven", 75));
 }
 
 fn file(name: &str) -> File {
