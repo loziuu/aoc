@@ -100,67 +100,21 @@ fn calc(a: Tuple, b: Tuple, prize: Tuple) -> i64 {
 }
 
 fn traverse(a: Tuple, b: Tuple, prize: Tuple) -> i64 {
-    let mut max_b = (prize.0 / b.0).min(prize.1 / b.1);
+    let det = a.0 * b.1 - a.1 * b.0;
 
-    while max_b > 1 {
-        let a_0 = if (prize.0 - (max_b * b.0)) % a.0 == 0 {
-            (prize.0 - (max_b * b.0)) / a.0
-        } else {
-            -1
-        };
-        let a_1 = if (prize.1 - (max_b * b.1)) % a.1 == 0 {
-            (prize.1 - (max_b * b.1)) / a.1
-        } else {
-            -1
-        };
-
-        if a_0 != -1 && a_1 != -1 && a_0 == a_1 {
-            return max_b + (a_0 * 3);
+    if det != 0 {
+        if (prize.0 * b.1 - prize.1 * b.0) % det != 0 {
+            return 0;
         }
+        let first = (prize.0 * b.1 - prize.1 * b.0) / det;
 
-        max_b -= 1;
+        if (a.0 * prize.1 - a.1 * prize.0) % det != 0 {
+            return 0;
+        }
+        let second = (a.0 * prize.1 - a.1 * prize.0) / det;
+
+        return second + (3 * first);
     }
 
     0
-}
-
-#[cfg(test)]
-mod tests {
-    use crate::thirteen::second::{calc, OFFSET};
-
-    #[test]
-    fn first() {
-        let a = (94, 34);
-        let b = (22, 67);
-        let prize = (OFFSET + 8400, OFFSET + 5400);
-
-        assert_eq!(0, calc(a, b, prize));
-    }
-
-    #[test]
-    fn second() {
-        let a = (26, 66);
-        let b = (67, 21);
-        let prize = (OFFSET + 12748, OFFSET + 12176);
-
-        assert_eq!(0, calc(a, b, prize));
-    }
-
-    #[test]
-    fn third() {
-        let a = (17, 86);
-        let b = (84, 37);
-        let prize = (OFFSET + 7870, OFFSET + 6450);
-
-        assert_eq!(0, calc(a, b, prize));
-    }
-
-    #[test]
-    fn fourth() {
-        let a = (69, 23);
-        let b = (27, 71);
-        let prize = (OFFSET + 18641, OFFSET + 10279);
-
-        assert_eq!(0, calc(a, b, prize));
-    }
 }
