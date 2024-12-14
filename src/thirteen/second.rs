@@ -14,7 +14,6 @@ pub fn execute(file: &str) -> i64 {
     let mut a = (0, 0);
     let mut b = (0, 0);
     while let Some(next) = lines.next() {
-        println!("Parsing segment: {}", next);
         let mut blocks = next.split_whitespace();
 
         if i == 0 {
@@ -39,7 +38,6 @@ pub fn execute(file: &str) -> i64 {
                     .parse()
                     .unwrap(),
             );
-            println!("Parsed A: {:?}", a);
         }
 
         if i == 1 {
@@ -64,7 +62,6 @@ pub fn execute(file: &str) -> i64 {
                     .parse()
                     .unwrap(),
             );
-            println!("Parsed B: {:?}", b);
         }
 
         if i == 2 {
@@ -99,14 +96,11 @@ pub fn execute(file: &str) -> i64 {
 }
 
 fn calc(a: Tuple, b: Tuple, prize: Tuple) -> i64 {
-    println!("A: {:?}, B: {:?}, Prize: {:?}", a, b, prize);
     traverse(a, b, prize)
 }
 
 fn traverse(a: Tuple, b: Tuple, prize: Tuple) -> i64 {
     let mut max_b = (prize.0 / b.0).min(prize.1 / b.1);
-
-    println!("Max_B:{}", max_b);
 
     while max_b > 1 {
         let a_0 = if (prize.0 - (max_b * b.0)) % a.0 == 0 {
