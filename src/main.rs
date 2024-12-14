@@ -75,6 +75,7 @@ fn main() {
 
     println!("--- DAY 13 ---");
     println!("{}", thirteen::first::execute("inputs/thirteen"));
+    println!("{}", thirteen::second::execute("inputs/thirteen"));
 }
 
 fn file(name: &str) -> File {

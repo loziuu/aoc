@@ -12,7 +12,6 @@ pub fn execute(file: &str) -> i32 {
     let mut a = (0, 0);
     let mut b = (0, 0);
     while let Some(next) = lines.next() {
-        println!("Parsing segment: {}", next);
         let mut blocks = next.split_whitespace();
 
         if i == 0 {
@@ -37,7 +36,6 @@ pub fn execute(file: &str) -> i32 {
                     .parse()
                     .unwrap(),
             );
-            println!("Parsed A: {:?}", a);
         }
 
         if i == 1 {
@@ -62,7 +60,6 @@ pub fn execute(file: &str) -> i32 {
                     .parse()
                     .unwrap(),
             );
-            println!("Parsed B: {:?}", b);
         }
 
         if i == 2 {
@@ -95,7 +92,6 @@ pub fn execute(file: &str) -> i32 {
 }
 
 fn calc(a: Tuple, b: Tuple, prize: Tuple) -> i32 {
-    println!("A: {:?}, B: {:?}, Prize: {:?}", a, b, prize);
     traverse(a, b, prize)
 }
 
