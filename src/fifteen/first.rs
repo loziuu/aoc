@@ -8,7 +8,7 @@ pub fn execute(file_path: &str) -> usize {
     let mut lines = input.split('\n');
 
     let mut matrix: Vec<Vec<char>> = Vec::new();
-    while let Some(line) = lines.next() {
+    for line in lines.by_ref() {
         if line.is_empty() {
             break;
         }
@@ -17,7 +17,7 @@ pub fn execute(file_path: &str) -> usize {
     }
 
     let mut dirs = Vec::new();
-    while let Some(line) = lines.next() {
+    for line in lines {
         if line.is_empty() {
             break;
         }
@@ -90,7 +90,7 @@ fn to_dir(ch: char) -> usize {
     } else if ch == '<' {
         return 3;
     }
-    return 4;
+    4
 }
 
 fn print_matrix(matrix: &Vec<Vec<char>>) {
