@@ -39,7 +39,6 @@ pub fn execute(file_path: &str) -> usize {
     }
 
     traverse(&mut matrix, &dirs);
-    print_matrix(&matrix);
 
     let mut res = 0;
     for i in 0..matrix.len() {
@@ -69,7 +68,6 @@ fn traverse(matrix: &mut Vec<Vec<char>>, dirs: &[char]) {
 
     for dir in dirs {
         let d = DIR[to_dir(*dir)];
-        println!("Moving {}", dir);
 
         queue.push_back(robot_position);
         moves.insert(robot_position, '.');
@@ -148,7 +146,6 @@ fn traverse(matrix: &mut Vec<Vec<char>>, dirs: &[char]) {
                 }
 
                 if curr == '[' {
-                    println!("Pushing box at: [{},{}]", pop.0, pop.1);
                     if matrix[next.0][next.1] == '#' && matrix[next.0][next.1 + 1] == '#' {
                         robot_position = temp;
                         moves.clear();
@@ -174,7 +171,6 @@ fn traverse(matrix: &mut Vec<Vec<char>>, dirs: &[char]) {
         for (k, v) in moves.iter() {
             matrix[k.0][k.1] = *v;
         }
-        print_matrix(matrix);
     }
 }
 
