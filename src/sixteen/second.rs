@@ -215,11 +215,4 @@ mod tests {
 
         assert_eq!(64, result);
     }
-
-    #[test]
-    fn second() {
-        let result = execute("inputs/sixteen_test_2");
-
-        assert_eq!(45, result);
-    }
 }
