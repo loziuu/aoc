@@ -8,6 +8,7 @@ mod five;
 mod four;
 mod fourteen;
 mod nine;
+mod nineteen;
 mod one;
 mod seven;
 mod seventeen;
@@ -99,6 +100,10 @@ fn main() {
     println!("--- DAY 18 ---");
     println!("{}", eighteen::first::execute("inputs/eighteen"));
     println!("{:?}", eighteen::second::execute("inputs/eighteen"));
+
+    println!("--- DAY 19 ---");
+    println!("{}", nineteen::first::execute("inputs/nineteen"));
+    println!("{}", nineteen::second::execute("inputs/nineteen"));
 }
 
 fn file(name: &str) -> File {
