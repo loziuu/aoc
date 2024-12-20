@@ -7,11 +7,11 @@ pub fn execute(file_path: &str) -> usize {
     let input = read_to_string(file_path).unwrap();
     let mut lines = input.split("\n");
 
-    let values: Vec<&str> = lines.next().unwrap().split(", ").collect();
+    let available: Vec<&str> = lines.next().unwrap().split(", ").collect();
     lines.next().unwrap();
-    let available: Vec<&str> = lines.collect();
+    let targets: Vec<&str> = lines.filter(|it| !it.is_empty()).collect();
 
-    collect_towels_ref(available, values)
+    collect_towels_ref(available, targets)
 }
 
 fn collect_towels_ref(mut available: Vec<&str>, target: Vec<&str>) -> usize {
@@ -45,6 +45,7 @@ fn check_target(target: &str, available: &mut [&str], cache: &mut HashMap<String
         }
     }
 
+    cache.insert(target.to_string(), false);
     false
 }
 
