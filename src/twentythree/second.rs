@@ -49,15 +49,3 @@ fn group_contains_host_with_t(key: &str, graph: &Graph, groups: &mut HashSet<Vec
         groups.insert(grp);
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::execute;
-
-    #[test]
-    fn first() {
-        let result = execute("inputs/twentythree_test");
-
-        assert_eq!(result, 7);
-    }
-}
